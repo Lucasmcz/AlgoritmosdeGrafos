@@ -1,6 +1,6 @@
 # AlgoritmosdeGrafos
 Algoritmos de grafos da disciplina "teoria dos grafos"<br> 
-Algoritmos:<br>
+Algoritmos(colaborador):<br>
 1º Dijikstra()
 <br>
 2º Floyd-Warshall()
