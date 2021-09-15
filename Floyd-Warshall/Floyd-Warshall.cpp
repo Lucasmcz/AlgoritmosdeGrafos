@@ -97,7 +97,18 @@ int main()
     return 0;
 }
 
-/* output:
+/* input:
+6 8
+0 1 5
+0 2 4
+0 3 2
+0 5 6
+1 3 1
+1 4 7
+2 4 6
+3 5 1
+
+output:
 A matrix de distancia para o F-W
 0       INF     INF     INF     INF     INF
 INF     0       5       4       2       10
@@ -105,4 +116,5 @@ INF     INF     0       INF     1       7
 INF     INF     INF     0       INF     6
 INF     INF     INF     INF     0       INF
 INF     INF     INF     INF     INF     0
+
 *\
