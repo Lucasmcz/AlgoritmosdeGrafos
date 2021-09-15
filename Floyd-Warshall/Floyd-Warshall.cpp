@@ -75,8 +75,7 @@ void F_W(Graph graph)
 
 int main()
 {
-    int V, E;
-    int src, dst, weight;
+    int V, E, src, dst, weight;
     cout<< "Digite o numero de vertices: ";
     cin >> V;
     cout<< "Digite o numero de arestas: ";
