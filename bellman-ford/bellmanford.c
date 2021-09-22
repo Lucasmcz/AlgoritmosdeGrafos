@@ -20,7 +20,7 @@ struct Graph {
 };
 
 void bellmanford(struct Graph *g, int source);//O GRAFO G , e o vertice Source(Inicial)
-void display(int arr[], int size);//Feito para printar as distancia depois do algoritmo completo 
+void display(int arr[], int size);//Feito para printar as distancia depois do algoritmo completo
 
 int main(void) {
 
@@ -35,11 +35,12 @@ int main(void) {
   else
   {
     fscanf(arq,"%d %d",&vertices,&arestas);
+      //printf("%d %d\n",vertices,arestas);
   }
-  //create graph
+
   struct Graph *g = (struct Graph *)malloc(sizeof(struct Graph));
-  g->V = 5;  //total vertices
-  g->E = 9;  //total edges
+  g->V = vertices;
+  g->E = arestas;
 
   //array of edges for graph
   g->edge = (struct Edge *)malloc(g->E * sizeof(struct Edge));
@@ -53,51 +54,11 @@ int main(void) {
 		w is the weight of the edge (u,v)
 	*/
 
-  //edge 0 --> 1
-  g->edge[0].u = 0;
-  g->edge[0].v = 1;
-  g->edge[0].w = 4;
-
-  //edge 0 --> 2
-  g->edge[1].u = 0;
-  g->edge[1].v = 2;
-  g->edge[1].w = 2;
-
-  //edge 1 --> 2
-  g->edge[2].u = 1;
-  g->edge[2].v = 2;
-  g->edge[2].w = 3;
-
-  //edge 2 --> 1
-  g->edge[3].u = 2;
-  g->edge[3].v = 1;
-  g->edge[3].w = 1;
-
-  //edge 1 --> 3
-  g->edge[4].u = 1;
-  g->edge[4].v = 3;
-  g->edge[4].w = 2;
-
-  //edge 1 --> 4
-  g->edge[5].u = 1;
-  g->edge[5].v = 4;
-  g->edge[5].w = 3;
-
-  //edge 2 --> 4
-  g->edge[6].u = 2;
-  g->edge[6].v = 4;
-  g->edge[6].w = 5;
-
-  //edge 2 --> 3
-  g->edge[7].u = 2;
-  g->edge[7].v = 3;
-  g->edge[7].w = 4;
-
-  //edge 4 --> 3
-  g->edge[8].u = 4;
-  g->edge[8].v = 3;
-  g->edge[8].w = -5;
-
+  for(int i = 0;i < arestas;i++)
+  {
+    fscanf(arq,"%d %d %d",&g->edge[i].u,&g->edge[i].v,&g->edge[i].w);
+    //printf("\n%d %d %d\n", g->edge[i].u,g->edge[i].v,g->edge[i].w);
+  }
 
 
   bellmanford(g, 0);  //0 is the source vertex
@@ -178,9 +139,6 @@ void bellmanford(struct Graph *g, int source) {
     }
 
   }
-
-  //printf("Predecessor array: ");
-  //display(p, tV);
 }
 
 void display(int arr[], int size) {
