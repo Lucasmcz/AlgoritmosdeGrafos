@@ -1,0 +1,14 @@
+Alunos : Lucas Vinicius e Ewerton F S Marinho
+Avaliação ab2 de Teoria dos grafos 
+Cada pasta possui um arquivo .c ou .cpp e um arquivo de entrada
+
+compilando dessa maneira :
+$ gcc  arquivo.c -o prog #arquivo.c representa o algoritmo que está na pasta 
+$ ./prog  -comando       #comando um conglomerado de letras que podem ser usadas , recomenda-se que digite -h para entender do que se trata as outras 
+
+exemplo(algoritmo em C):
+$ gcc bellmanford.c -o myprog 
+$./myprog -h                   #Mostrar o help 
+
+
+
