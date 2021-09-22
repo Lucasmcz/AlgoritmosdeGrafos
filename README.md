@@ -8,3 +8,4 @@ Algoritmos(colaborador):<br>
 3º Ford-Fulkerson(Lucas Vinicius)
 <br>
 4º Bellman-ford(Lucas Vinicius)
+<strong>Ler o Arquivo ajuda.txt</strong>
