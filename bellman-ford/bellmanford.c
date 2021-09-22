@@ -5,24 +5,37 @@
 
 #define INFINITY 99999
 
-//struct for the edges of the graph
+//Struct que Arestas que foi construida para formar o Grafo
 struct Edge {
-  int u;  //start vertex of the edge
-  int v;  //end vertex of the edge
-  int w;  //weight of the edge (u,v)
+  int u;  //Vertice Inicial
+  int v;  //Vertice Final
+  int w;  //Peso
 };
 
-//Graph - it consists of edges
+//GRAFO
 struct Graph {
-  int V;        //total number of vertices in the graph
-  int E;        //total number of edges in the graph
-  struct Edge *edge;  //array of edges
+  int V;//Numero de Vertices
+  int E;//Numero de Arestas
+  struct Edge *edge;//Array de Arestas que foi utilizada a Struct Arestas que foi feita anteriormente
 };
 
-void bellmanford(struct Graph *g, int source);
-void display(int arr[], int size);
+void bellmanford(struct Graph *g, int source);//O GRAFO G , e o vertice Source(Inicial)
+void display(int arr[], int size);//Feito para printar as distancia depois do algoritmo completo 
 
 int main(void) {
+
+  FILE *arq;
+  int vertices;
+  int arestas;
+  arq = fopen("entrada1.txt","r+");
+  if(arq == NULL)
+  {
+    printf("ERRO");
+  }
+  else
+  {
+    fscanf(arq,"%d %d",&vertices,&arestas);
+  }
   //create graph
   struct Graph *g = (struct Graph *)malloc(sizeof(struct Graph));
   g->V = 5;  //total vertices
@@ -93,6 +106,7 @@ int main(void) {
 }
 
 void bellmanford(struct Graph *g, int source) {
+  FILE *arq1;
   //variables
   int i, j, u, v, w;
 
@@ -151,6 +165,20 @@ void bellmanford(struct Graph *g, int source) {
   //print the distance and predecessor array
   printf("Distance array: ");
   display(d, tV);
+  arq1 = fopen("saida.txt","w");
+  if(arq1 == NULL)
+  {
+    puts("Erro");
+  }
+  else
+  {
+    for(int i = 0;i < 5;i++)
+    {
+      fprintf(arq1,"%d ",d[i]);
+    }
+
+  }
+
   //printf("Predecessor array: ");
   //display(p, tV);
 }
