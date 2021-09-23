@@ -9,8 +9,8 @@ Class: Graph Theory
 #include <climits>
 #include <queue>
 #include <utility>
-#define MAX_V 9999
-#define INF 9999
+#define MAX_V 99999
+#define INF 99999
 
 using namespace std;
 // Info about the arcs
@@ -65,10 +65,11 @@ void Dijkstra(int src, int vertices)
         }
     }
     cout << "\nVertex Distance from the source\n";
-    for (int i = 0; i < vertices; i++)
+    for (int i = 1; i <= vertices; i++)
     {
-        cout << "\t\n" << i << " " << dist[i] << endl;
+        cout << i << ":" << dist[i] << " ";
     }
+    cout << "\n";
 }
 
 int main()
@@ -96,7 +97,6 @@ int main()
 
 /*
 INTPUT:
-
 Enter with number of vertices: 6
 Enter with number of arcs: 8
 Arcs 1
@@ -134,12 +134,7 @@ Enter with weights: 1
 Enter the initial vertex: 1
 
 OUTPUT:
-
 Vertex Distance from the source
-0 9999
-1 0
-2 5
-3 4
-4 2
-5 10
+1:0 2:5 3:4 4:2 5:10 6:3 
+
 */
