@@ -1,7 +1,7 @@
 /*
 Implementation Dijkstra Algorithm with Priority Queue
 Teacher: Rian Gabriel
-Class: Graph Theory
+Course: Graph Theory
 */
 #include <iostream>
 #include <vector>
