@@ -29,15 +29,21 @@ class Graph{
 
 void print_distance(int distance[], int V)
 {
-    cout << "\nA matrix de distancia para o F-W" << endl;
-    for(int i = 0; i < V; i++){
-        for(int j = 0; j < V; j++){
-            if(distance[i*V+j] != INT_MAX)
-                cout << distance[i*V+j] << "\t";
-            else
-                cout << "INF" << "\t";
+    FILE* arch1 = fopen("out.txt", "w");
+    if(arch1 == NULL){
+        printf("Error");
+        exit(1);
+    }
+    else{
+        for(int i = 0; i < V; i++){
+            for(int j = 0; j < V; j++){
+                if(distance[i*V+j] != INT_MAX)
+                    fprintf(arch1, "%d ", distance[i*V+j]);
+                else
+                    // cout << "INF" << "\t";
+                    fprintf(arch1, "INF ");
+            }
         }
-        cout << endl;
     }
 }
 
@@ -67,7 +73,6 @@ void F_W(Graph graph)
             dist1[i*V+j] = dist[i][j];
         }
     }
-
     print_distance(dist1, V);
 }
 
@@ -76,44 +81,19 @@ void F_W(Graph graph)
 int main()
 {
     int V, E, src, dst, weight;
-    cout<< "Digite o numero de vertices: ";
-    cin >> V;
-    cout<< "Digite o numero de arestas: ";
-    cin >> E;
-    Graph G(V);
-    for(int i = 0; i < E; i++){
-        cout<< "\nAresta " << i + 1 << "\nDigite a fonte: ";
-        cin >> src;
-        cout << "Digite o destino: ";
-        cin >> dst;
-        cout << "Digite o peso: ";
-        cin >> weight;
-        G.addEdge(src, dst, weight);
+    FILE* arch = fopen("in.txt","r+");
+    if(arch == NULL){
+        printf("Error");
+        exit(1);
     }
-
-    F_W(G);
-
+    else{
+        fscanf(arch,"%d %d", &V, &E);
+        Graph G(V);
+        for(int i = 0; i < E; i++){
+            fscanf(arch,"%d %d %d", &src, &dst, &weight);
+            G.addEdge(src, dst, weight);
+        }
+        F_W(G);
+    }
     return 0;
 }
-
-/* input:
-6 8
-1 2 5
-1 3 4
-1 4 2
-1 6 6
-2 4 1
-2 5 7
-3 5 6
-4 6 1
-
-output:
-A matrix de distancia para o F-W
-0       INF     INF     INF     INF     INF
-INF     0       5       4       2       10
-INF     INF     0       INF     1       7
-INF     INF     INF     0       INF     6
-INF     INF     INF     INF     0       INF
-INF     INF     INF     INF     INF     0
-
-*\
